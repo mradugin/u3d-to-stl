@@ -4,6 +4,7 @@ project(u3d-to-stl)
 find_package(LibXml2 REQUIRED)
 
 set(SOURCES
+    ./include/stl.h
     ./include/u3dbitdecoder.h
     ./include/u3dbitencoder.h
     ./include/u3dblocktypes.h
@@ -52,6 +53,7 @@ set(SOURCES
     ./libraries/parser/src/u3dfilestr.c
     ./libraries/parser/src/u3dpipeline.c
     ./libraries/parser/src/u3dpipeline.h
+    ./libraries/stl/stl.c
     ./samples/parsefile/block_0x00443355.c
     ./samples/parsefile/block_0xFFFFFF12.c
     ./samples/parsefile/block_0xFFFFFF14.c
