@@ -1,0 +1,13 @@
+
+dist: xenial
+
+language: c
+
+compiler:
+  - gcc
+  
+script:
+  - mkdir u3d-to-stl-build
+  - cd u3d-to-stl-build
+  - cmake -DCMAKE_BUILD_TYPE=MinSizeRel ../u3d-to-stl
+  - make
