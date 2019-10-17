@@ -60,7 +60,6 @@ set(SOURCES
     ./samples/parsefile/block_0xFFFFFF45.c
     ./samples/parsefile/block_0xFFFFFF16.c
     ./samples/parsefile/block_0xFFFFFF51.c
-    ./samples/parsefile/u3dparsefile.c
     ./samples/parsefile/block_0xFFFFFF3E.c
     ./samples/parsefile/block_0xFFFFFF3B.c
     ./samples/parsefile/block_0xFFFFFF15.c
@@ -80,9 +79,10 @@ set(SOURCES
     ./samples/parsefile/block_0xFFFFFF3C.c
     ./samples/parsefile/block_0xFFFFFF24.c
     ./samples/parsefile/block_0xFFFFFF55.c
-    ./samples/parsefile/u3dparsefile.h
     ./samples/parsefile/block_0xFFFFFF42.c
     ./samples/parsefile/block_0xFFFFFF41.c
+    ./samples/parsefile/u3dparsefile.c
+    ./samples/parsefile/u3dparsefile.h
 )
 
 SET (INCLUDE_DIRS
