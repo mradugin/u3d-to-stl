@@ -417,6 +417,10 @@ int main( int argC, char* argV[])
     U64         Size = 0;
 
     if(argC < 2) {
+        printf("U3D to STL file converter\n");
+        printf("Converts all occurences of CLOD_Mesh_Continuation (0xFFFFFF3B) blocks\n");
+        printf("to STL files, saving each mesh into <u3d_filename>_<u3d_mesh_name>.stl\n");
+        printf("Usage: %s <u3d_file>\n", argV[0]);
         fprintf(stderr, "WARNING: u3d file name requried!\n");
         return -1;
     } /* if */
