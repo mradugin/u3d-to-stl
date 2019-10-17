@@ -22,33 +22,33 @@
 U3dStatus u3dDisposeInfo0xFFFFFF5C(U3dCallBack *u3dcb, U32 position,
                                    U8* pData, U32 size, U32* readData)
 {
-	xmlNodePtr	curnode = u3dcb->curnode;
-	U32         shift = 0;
-	U16			stringlen;
-	U32			index;
-	char		value[65536];
+    xmlNodePtr	curnode = u3dcb->curnode;
+    U32         shift = 0;
+    U16			stringlen;
+    U32			index;
+    char		value[65536];
 
-	if(curnode == 0) {
-		return u3dStsBadArgErr;
-	} /* if */
-	u3dcb->data = pData;
-	u3dcb->size = size;
-	u3dDecoderReset(u3dcb->u3ddecoder, u3dcb, myMap);
-	if(size < sizeof(U16)) {
-		return 0;
-	} /* if */
-	size -= sizeof(U16);
-	u3dGetU16(u3dcb->u3ddecoder, &stringlen);
-	if(size < stringlen) {
-		return 0;
-	} /* if */
-	for(index = 0; index < stringlen; index++) {
-		u3dGetU8(u3dcb->u3ddecoder, &value[index]);
-	} /* for */
-	value[index] = 0;
-	xmlNewProp(curnode, "name", value);
+    if(curnode == 0) {
+        return u3dStsBadArgErr;
+    } /* if */
+    u3dcb->data = pData;
+    u3dcb->size = size;
+    u3dDecoderReset(u3dcb->u3ddecoder, u3dcb, myMap);
+    if(size < sizeof(U16)) {
+        return 0;
+    } /* if */
+    size -= sizeof(U16);
+    u3dGetU16(u3dcb->u3ddecoder, &stringlen);
+    if(size < stringlen) {
+        return 0;
+    } /* if */
+    for(index = 0; index < stringlen; index++) {
+        u3dGetU8(u3dcb->u3ddecoder, &value[index]);
+    } /* for */
+    value[index] = 0;
+    xmlNewProp(curnode, "name", value);
 
-	return u3dStsNoErr;
+    return u3dStsNoErr;
 } /* u3dDisposeInfo0xFFFFFF5C */
 
 

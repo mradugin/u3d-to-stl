@@ -27,7 +27,6 @@
 #include <stdio.h>
 #include "u3dparser.h"
 #include "u3dbitdecoder.h"
-#include "libxml/tree.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,13 +35,10 @@ extern "C" {
 extern char *indent[];
 
 typedef struct {
-    xmlDocPtr	 xmldoc;
-    xmlNodePtr	 curnode;
     U3dParser*   u3dparser;
     U3dDecoder*  u3ddecoder;
     U8*          data;
     U64          size;
-    U32          callLevel;
     U32          iscompressed;
     const char*  filename;
 } U3dCallBack;
