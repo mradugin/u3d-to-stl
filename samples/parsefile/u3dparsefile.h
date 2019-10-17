@@ -36,14 +36,15 @@ extern "C" {
 extern char *indent[];
 
 typedef struct {
-	xmlDocPtr	 xmldoc;
-	xmlNodePtr	 curnode;
+    xmlDocPtr	 xmldoc;
+    xmlNodePtr	 curnode;
     U3dParser*   u3dparser;
     U3dDecoder*  u3ddecoder;
     U8*          data;
     U64          size;
     U32          callLevel;
-	U32			 iscompressed;
+    U32          iscompressed;
+    const char*  filename;
 } U3dCallBack;
 
 U64 myMap(U3dStream_cbCtx* pCtx, U8** pData, U64 size);
