@@ -34,7 +34,7 @@
 U3D_METHOD(U3dStatus, u3dDisposeModifierChainInfo,(
         U3dParser* pCtx,
         U8* pData, U32 size,  U32* readData,
-        U3dModifierChain* modifierChain)
+        U3dModifierChain* modifierChain))
 {
     U32    shift = 0;
 
