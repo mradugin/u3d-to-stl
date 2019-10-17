@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <linux/limits.h>
+#include <limits.h>
 #include <libgen.h>
 
 #include "stl.h"

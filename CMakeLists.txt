@@ -1,38 +1,36 @@
 cmake_minimum_required(VERSION 3.0)
 project(u3d-to-stl)
 
-find_package(LibXml2 REQUIRED)
-
 set(SOURCES
     ./apps/u3d-to-stl/block_0x00443355.c
-    ./apps/u3d-to-stl/block_0xFFFFFF12.c
-    ./apps/u3d-to-stl/block_0xFFFFFF14.c
-    ./apps/u3d-to-stl/block_0xFFFFFF15.c
-    ./apps/u3d-to-stl/block_0xFFFFFF16.c
-    ./apps/u3d-to-stl/block_0xFFFFFF21.c
-    ./apps/u3d-to-stl/block_0xFFFFFF22.c
-    ./apps/u3d-to-stl/block_0xFFFFFF23.c
-    ./apps/u3d-to-stl/block_0xFFFFFF24.c
-    ./apps/u3d-to-stl/block_0xFFFFFF31.c
-    ./apps/u3d-to-stl/block_0xFFFFFF36.c
-    ./apps/u3d-to-stl/block_0xFFFFFF37.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF12.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF14.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF15.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF16.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF21.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF22.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF23.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF24.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF31.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF36.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF37.c
     ./apps/u3d-to-stl/block_0xFFFFFF3B.c
-    ./apps/u3d-to-stl/block_0xFFFFFF3C.c
-    ./apps/u3d-to-stl/block_0xFFFFFF3E.c
-    ./apps/u3d-to-stl/block_0xFFFFFF3F.c
-    ./apps/u3d-to-stl/block_0xFFFFFF41.c
-    ./apps/u3d-to-stl/block_0xFFFFFF42.c
-    ./apps/u3d-to-stl/block_0xFFFFFF43.c
-    ./apps/u3d-to-stl/block_0xFFFFFF44.c
-    ./apps/u3d-to-stl/block_0xFFFFFF45.c
-    ./apps/u3d-to-stl/block_0xFFFFFF46.c
-    ./apps/u3d-to-stl/block_0xFFFFFF51.c
-    ./apps/u3d-to-stl/block_0xFFFFFF52.c
-    ./apps/u3d-to-stl/block_0xFFFFFF53.c
-    ./apps/u3d-to-stl/block_0xFFFFFF54.c
-    ./apps/u3d-to-stl/block_0xFFFFFF55.c
-    ./apps/u3d-to-stl/block_0xFFFFFF56.c
-    ./apps/u3d-to-stl/block_0xFFFFFF5C.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF3C.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF3E.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF3F.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF41.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF42.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF43.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF44.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF45.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF46.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF51.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF52.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF53.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF54.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF55.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF56.c
+#    ./apps/u3d-to-stl/block_0xFFFFFF5C.c
     ./apps/u3d-to-stl/u3d-to-stl.c
     ./apps/u3d-to-stl/u3dparsefile.h
     ./include/stl.h
@@ -94,7 +92,6 @@ SET (INCLUDE_DIRS
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_include_directories(${PROJECT_NAME} PRIVATE
-    ${LIBXML2_INCLUDE_DIR} ${INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})
 
-target_link_libraries(${PROJECT_NAME} ${LIBXML2_LIBRARIES})
+target_link_libraries(${PROJECT_NAME})
