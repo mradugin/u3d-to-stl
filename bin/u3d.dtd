@@ -1,0 +1,256 @@
+﻿
+<!--
+#***************************************************************************
+#
+#  Copyright (c) 2006 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#***************************************************************************
+-->
+<!ELEMENT Parse_File    (#PCDATA | Block)*>
+<!ELEMENT Block         (Data, Metadata)>
+<!ELEMENT Data          (File_Header | File_Reference | Modifier_Chain |
+                         Priority_Update | New_Object_Type | New_Object| 
+                         Group_Node | Model_Node | Light_Node | View_Node | 
+                         CLOD_Mesh_Declaration | CLOD_Mesh_Continuation |
+                         CLOD_Mesh_Progressive | Point_Declaration |
+                         Point_Continuation | Line_Declaration |
+                         Line_Continuation | Glyph_Modifier_2D |
+                         Subdivision_Modifier | Animation_Modifier |
+                         Bone_Weight_Modifier | Shading_Modifier |
+                         CLOD_Modifier | Light_Resource | View_Resource | 
+                         Lit_Texture_Shader | Material_Resource |
+                         Texture_Declaration | Texture_Continuation |
+                         Motion_Resource)>
+<!ELEMENT Metadata     (Key_Value)*>
+
+<!ELEMENT Key_Value		         (#PCDATA)>
+<!ELEMENT File_Header            (#PCDATA)>
+<!ELEMENT File_Reference         (File_URL*, Filter*)>
+<!ELEMENT Modifier_Chain         (Block)*>
+<!ELEMENT Priority_Update        (#PCDATA)>
+<!ELEMENT New_Object_Type        (Extesion_ID, Declaration, Continuation*,
+								  Extension)>
+<!ELEMENT Extension				 (#PCDATA)>
+<!ELEMENT New_Object             (#PCDATA)>
+<!ELEMENT Group_Node             (Parent*)>
+<!ELEMENT Model_Node             (Parent*, Resources)>
+<!ELEMENT Light_Node             (Parent*, Resources)>
+<!ELEMENT View_Node              (Parent*, Resources, Clipping, (Projection |
+								  Orthographic | Projection_Vector), View_Port,
+								  Backdrop*, Overlay*)>
+<!ELEMENT CLOD_Mesh_Declaration  (#PCDATA)>
+<!ELEMENT CLOD_Mesh_Continuation (#PCDATA)>
+<!ELEMENT CLOD_Mesh_Progressive  (#PCDATA)>
+<!ELEMENT Point_Declaration      (#PCDATA)>
+<!ELEMENT Point_Continuation     (#PCDATA)>
+<!ELEMENT Line_Declaration       (#PCDATA)>
+<!ELEMENT Line_Continuation      (#PCDATA)>
+<!ELEMENT Glyph_Modifier_2D      ((Glyph)*, Transform)>
+<!ELEMENT Subdivision_Modifier   (#PCDATA)>
+<!ELEMENT Animation_Modifier     (#PCDATA)>
+<!ELEMENT Bone_Weight_Modifier   (#PCDATA)>
+<!ELEMENT Shading_Modifier       (#PCDATA)>
+<!ELEMENT CLOD_Modifier          (#PCDATA)>
+<!ELEMENT Light_Resource         (Color, Attenuation)>
+<!ELEMENT View_Resource          (Root_Node, Fog)>
+<!ELEMENT Lit_Texture_Shader     (#PCDATA)>
+<!ELEMENT Material_Resource      (Ambient, Diffuse, Specular, Emissive)>
+<!ELEMENT Texture_Declaration    (#PCDATA)>
+<!ELEMENT Texture_Continuation   (#PCDATA)>
+<!ELEMENT Motion_Resource        (#PCDATA)>
+<!ELEMENT Color				     (#PCDATA)>
+<!ELEMENT Attenuation	         (#PCDATA)>
+<!ELEMENT Root_Node			     (#PCDATA)>
+<!ELEMENT Fog			         (#PCDATA)>
+<!ELEMENT Ambient		         (#PCDATA)>
+<!ELEMENT Diffuse		         (#PCDATA)>
+<!ELEMENT Specular		         (#PCDATA)>
+<!ELEMENT Emissive		         (#PCDATA)>
+<!ELEMENT Parent				 (Transform)>
+<!ELEMENT Transform				 (#PCDATA)>
+<!ELEMENT Resources				 (#PCDATA)>
+<!ELEMENT Clipping				 (#PCDATA)>
+<!ELEMENT Projection			 (#PCDATA)>
+<!ELEMENT Orthographic			 (#PCDATA)>
+<!ELEMENT Projection_Vector		 (#PCDATA)>
+<!ELEMENT View_Port				 (#PCDATA)>
+<!ELEMENT Backdrop				 (#PCDATA)>
+<!ELEMENT Overlay				 (#PCDATA)>
+<!ELEMENT Glyph					 (#PCDATA)>
+
+<!ATTLIST Block             Type            CDATA #REQUIRED
+                            pos_hex         CDATA #REQUIRED
+                            pos             CDATA #REQUIRED>
+<!ATTLIST Data              size            CDATA #REQUIRED
+                            padding_size    CDATA #REQUIRED>
+
+<!ATTLIST Metadata          size            CDATA #REQUIRED
+                            padding_size    CDATA #REQUIRED>
+
+<!ATTLIST Key_Value         attributes      CDATA #REQUIRED
+                            key				CDATA #REQUIRED
+                            value			CDATA #IMPLIED>
+
+<!ATTLIST File_Header	    majorVersion    CDATA #REQUIRED
+							minorVersion    CDATA #REQUIRED
+							profileID       CDATA #REQUIRED
+							declSize	    CDATA #REQUIRED
+							fileSize	    CDATA #REQUIRED
+							encoding	    CDATA #REQUIRED
+							scaling         CDATA #IMPLIED>
+<!ATTLIST File_Reference	name            CDATA #REQUIRED
+							attribute       CDATA #REQUIRED
+							sp_x			CDATA #IMPLIED
+							sp_y			CDATA #IMPLIED
+							sp_z			CDATA #IMPLIED
+							sp_r			CDATA #IMPLIED
+							box_xmin		CDATA #IMPLIED
+							box_ymin		CDATA #IMPLIED
+							box_zmin		CDATA #IMPLIED
+							box_xmax		CDATA #IMPLIED
+							box_ymax		CDATA #IMPLIED
+							box_zmax		CDATA #IMPLIED
+							collision       CDATA #REQUIRED
+							allias       	CDATA #REQUIRED>
+<!ATTLIST Modifier_Chain    name            CDATA #REQUIRED
+							type            CDATA #REQUIRED
+							attribute       CDATA #REQUIRED
+							sp_x			CDATA #IMPLIED
+							sp_y			CDATA #IMPLIED
+							sp_z			CDATA #IMPLIED
+							sp_r			CDATA #IMPLIED
+							box_xmin		CDATA #IMPLIED
+							box_ymin		CDATA #IMPLIED
+							box_zmin		CDATA #IMPLIED
+							box_xmax		CDATA #IMPLIED
+							box_ymax		CDATA #IMPLIED
+							box_zmax		CDATA #IMPLIED>
+<!ATTLIST Priority_Update   priority        CDATA #REQUIRED>
+<!ATTLIST New_Object_Type   name	        CDATA #REQUIRED>
+
+<!ATTLIST Group_Node	    		name	        CDATA #REQUIRED>
+<!ATTLIST Model_Node	    		name	        CDATA #REQUIRED>
+<!ATTLIST Light_Node	    		name	        CDATA #REQUIRED>
+<!ATTLIST View_Node 	    		name	        CDATA #REQUIRED
+									attributes		CDATA #REQUIRED>
+<!ATTLIST CLOD_Mesh_Declaration 	name	        CDATA #REQUIRED>
+<!ATTLIST CLOD_Mesh_Continuation	name	        CDATA #REQUIRED>
+<!ATTLIST CLOD_Mesh_Progressive		name	        CDATA #REQUIRED>
+<!ATTLIST Point_Declaration			name	        CDATA #REQUIRED>
+<!ATTLIST Point_Continuation		name	        CDATA #REQUIRED>
+<!ATTLIST Line_Declaration			name	        CDATA #REQUIRED>
+<!ATTLIST Line_Continuation			name	        CDATA #REQUIRED>
+<!ATTLIST Glyph_Modifier_2D			name	        CDATA #REQUIRED
+									chainindex		CDATA #REQUIRED
+									attributes		CDATA #REQUIRED>
+<!ATTLIST Subdivision_Modifier		name	        CDATA #REQUIRED>
+<!ATTLIST Animation_Modifier		name	        CDATA #REQUIRED>
+<!ATTLIST Bone_Weight_Modifier		name	        CDATA #REQUIRED>
+<!ATTLIST Shading_Modifier			name	        CDATA #REQUIRED>
+<!ATTLIST CLOD_Modifier				name	        CDATA #REQUIRED>
+<!ATTLIST Light_Resource			name	        CDATA #REQUIRED
+									attributes		CDATA #REQUIRED
+									type			CDATA #REQUIRED
+									angle			CDATA #REQUIRED
+									intensity		CDATA #REQUIRED>
+<!ATTLIST View_Resource				name	        CDATA #REQUIRED>
+<!ATTLIST Lit_Texture_Shader		name	        CDATA #REQUIRED
+									attributes		CDATA #REQUIRED
+									testreference	CDATA #REQUIRED
+									testfunctions	CDATA #REQUIRED
+									blendfunctions	CDATA #REQUIRED
+									renderpass		CDATA #REQUIRED
+									shaderchanels	CDATA #REQUIRED
+									texturechanels	CDATA #REQUIRED>
+<!ATTLIST Material_Resource			name	        CDATA #REQUIRED
+									attributes		CDATA #REQUIRED
+									reflectivity	CDATA #REQUIRED
+									opacity			CDATA #REQUIRED>
+<!ATTLIST Texture_Declaration		name	        CDATA #REQUIRED>
+<!ATTLIST Texture_Continuation		name	        CDATA #REQUIRED>
+<!ATTLIST Motion_Resource			name	        CDATA #REQUIRED>
+
+<!ATTLIST Color						red	        	CDATA #REQUIRED
+									green        	CDATA #REQUIRED
+									blue        	CDATA #REQUIRED
+									reserved       	CDATA #REQUIRED>
+<!ATTLIST Attenuation				constant       	CDATA #REQUIRED
+									linear        	CDATA #REQUIRED
+									quadtratic     	CDATA #REQUIRED>
+<!ATTLIST Root_Node					name   	    	CDATA #REQUIRED
+									attributes     	CDATA #REQUIRED>
+<!ATTLIST Fog						mode	       	CDATA #REQUIRED
+									red	        	CDATA #REQUIRED
+									green        	CDATA #REQUIRED
+									blue        	CDATA #REQUIRED
+									alpha        	CDATA #REQUIRED
+									near        	CDATA #REQUIRED
+									far		     	CDATA #REQUIRED>
+<!ATTLIST Ambient					red	        	CDATA #REQUIRED
+									green        	CDATA #REQUIRED
+									blue        	CDATA #REQUIRED>
+<!ATTLIST Diffuse					red	        	CDATA #REQUIRED
+									green        	CDATA #REQUIRED
+									blue        	CDATA #REQUIRED>
+<!ATTLIST Specular					red	        	CDATA #REQUIRED
+									green        	CDATA #REQUIRED
+									blue        	CDATA #REQUIRED>
+<!ATTLIST Emissive					red	        	CDATA #REQUIRED
+									green        	CDATA #REQUIRED
+									blue        	CDATA #REQUIRED>
+<!ATTLIST Parent					name	        CDATA #REQUIRED>
+<!ATTLIST Resources					name	        CDATA #REQUIRED
+									visibility		CDATA #IMPLIED>
+<!ATTLIST Clipping				 	nearclip		CDATA #REQUIRED
+									farclip			CDATA #REQUIRED>
+<!ATTLIST Projection			  	projection	    CDATA #REQUIRED>
+<!ATTLIST Orthographic			  	orthographic    CDATA #REQUIRED>
+<!ATTLIST Projection_Vector		 	x				CDATA #REQUIRED
+									y				CDATA #REQUIRED
+									z				CDATA #REQUIRED>
+<!ATTLIST View_Port					width			CDATA #REQUIRED
+									height			CDATA #REQUIRED
+									horizontal      CDATA #REQUIRED
+									vertical		CDATA #REQUIRED>
+<!ATTLIST Backdrop					name			CDATA #REQUIRED
+									blend			CDATA #REQUIRED
+									rotation	    CDATA #REQUIRED
+									locationx	    CDATA #REQUIRED
+									locationy	    CDATA #REQUIRED
+									registrationx   CDATA #REQUIRED
+									registrationy   CDATA #REQUIRED
+									scaley			CDATA #REQUIRED>
+<!ATTLIST Overlay					name			CDATA #REQUIRED
+									blend			CDATA #REQUIRED
+									rotation	    CDATA #REQUIRED
+									locationx	    CDATA #REQUIRED
+									locationy	    CDATA #REQUIRED
+									registrationx   CDATA #REQUIRED
+									registrationy   CDATA #REQUIRED
+									scaley			CDATA #REQUIRED>
+<!ATTLIST Glyph						command			CDATA #REQUIRED
+									moveto_x		CDATA #IMPLIED
+									moveto_y	    CDATA #IMPLIED
+									lineto_x	    CDATA #IMPLIED
+									lineto_y	    CDATA #IMPLIED
+									control1_x	    CDATA #IMPLIED
+									control1_x	    CDATA #IMPLIED
+									control2_x	    CDATA #IMPLIED
+									control2_x	    CDATA #IMPLIED
+									end_point_x	    CDATA #IMPLIED
+									end_point_y	    CDATA #IMPLIED
+									end_glyph_offset_x  CDATA #IMPLIED
+									end_glyph_offset_y	CDATA #IMPLIED>
+
