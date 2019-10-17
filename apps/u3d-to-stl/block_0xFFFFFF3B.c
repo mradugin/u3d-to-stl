@@ -74,7 +74,7 @@ U3dStatus u3dDisposeInfo0xFFFFFF3B(U3dCallBack *u3dcb, U32 position,
         u3dGetU8(u3dcb->u3ddecoder, &value[index]);
     } /* for */
     value[index] = 0;
-    printf("\tname: %s\n", value);
+    printf("  name: %s\n", value);
 
     u3dGetU32(u3dcb->u3ddecoder, &chain_index);
     u3dGetU32(u3dcb->u3ddecoder, &face_count);
@@ -83,13 +83,13 @@ U3dStatus u3dDisposeInfo0xFFFFFF3B(U3dCallBack *u3dcb, U32 position,
     u3dGetU32(u3dcb->u3ddecoder, &diff_color_count);
     u3dGetU32(u3dcb->u3ddecoder, &spec_color_count);
     u3dGetU32(u3dcb->u3ddecoder, &tex_coord_count);
-    printf("\tchainIndex: %u\n", chain_index);
-    printf("\tfaceCount: %u\n", face_count);
-    printf("\tposCount: %u\n", pos_count);
-    printf("\tnormalCount: %u\n", normal_count);
-    printf("\tdiffColorCount: %u\n", diff_color_count);
-    printf("\tspecColorCount: %u\n", spec_color_count);
-    printf("\ttexCoordCount: %u\n", tex_coord_count);
+    printf("  chainIndex: %u\n", chain_index);
+    printf("  faceCount: %u\n", face_count);
+    printf("  posCount: %u\n", pos_count);
+    printf("  normalCount: %u\n", normal_count);
+    printf("  diffColorCount: %u\n", diff_color_count);
+    printf("  specColorCount: %u\n", spec_color_count);
+    printf("  texCoordCount: %u\n", tex_coord_count);
 
     F32* positions = ReadF32Array2D(u3dcb, 3, pos_count);
     F32* normals = ReadF32Array2D(u3dcb, 3, normal_count);
@@ -149,6 +149,7 @@ U3dStatus u3dDisposeInfo0xFFFFFF3B(U3dCallBack *u3dcb, U32 position,
     char filename[PATH_MAX] = {};
 
     STL_GetFilename(filename, sizeof(filename), u3dcb->filename, value);
+    printf("  Saving mesh to: %s\n", filename);
     STL_SaveFacesToFile(faces, face_count, filename, value);
 
     free(faces);

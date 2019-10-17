@@ -40,7 +40,7 @@ U3dStatus u3dDisposeInfo0x00443355(U3dCallBack *u3dcb, U32 position,
     } /* if */
     size -= sizeof(U16);
     u3dGetU16(u3dcb->u3ddecoder, &majorVersion);
-    printf("\tmajorVersion: %d\n", majorVersion);
+    printf("  majorVersion: %d\n", majorVersion);
     pData += sizeof(U16);
     shift += sizeof(U16);
 
@@ -49,7 +49,7 @@ U3dStatus u3dDisposeInfo0x00443355(U3dCallBack *u3dcb, U32 position,
     } /* if */
     size -= sizeof(U16);
     u3dGetU16(u3dcb->u3ddecoder, &minorVersion);
-    printf("\tmajorVersion: %d\n", minorVersion);
+    printf("  majorVersion: %d\n", minorVersion);
     pData += sizeof(U16);
     shift += sizeof(U16);
 
@@ -58,7 +58,7 @@ U3dStatus u3dDisposeInfo0x00443355(U3dCallBack *u3dcb, U32 position,
     } /* if */
     u3dGetU32(u3dcb->u3ddecoder, &profileID);
     size -= sizeof(U32);
-    printf("\tprofileID: 0x%X\n", profileID);
+    printf("  profileID: 0x%X\n", profileID);
     pData += sizeof(U32);
     shift += sizeof(U32);
     if(!(profileID & 0x4)) {
@@ -69,7 +69,7 @@ U3dStatus u3dDisposeInfo0x00443355(U3dCallBack *u3dcb, U32 position,
     } /* if */
     size -= sizeof(U32);
     u3dGetU32(u3dcb->u3ddecoder, &declSize);
-    printf("\tdeclSize: %u\n", declSize);
+    printf("  declSize: %u\n", declSize);
     pData += sizeof(U32);
     shift += sizeof(U32);
 
@@ -78,7 +78,7 @@ U3dStatus u3dDisposeInfo0x00443355(U3dCallBack *u3dcb, U32 position,
     } /* if */
     size -= sizeof(U64);
     u3dGetU64(u3dcb->u3ddecoder, &fileSize);
-    printf("\tfileSize: %llu\n", fileSize);
+    printf("  fileSize: %llu\n", fileSize);
     pData += sizeof(U64);
     shift += sizeof(U64);
     if(size < sizeof(U32)) {
@@ -86,7 +86,7 @@ U3dStatus u3dDisposeInfo0x00443355(U3dCallBack *u3dcb, U32 position,
     } /* if */
     size -= sizeof(U32);
     u3dGetU32(u3dcb->u3ddecoder, &encoding);
-    printf("\tencoding: %u\n", encoding);
+    printf("  encoding: %u\n", encoding);
     pData += sizeof(U32);
     shift += sizeof(U32);
     if(profileID & 0x8) {
@@ -97,7 +97,7 @@ U3dStatus u3dDisposeInfo0x00443355(U3dCallBack *u3dcb, U32 position,
         u3dGetU64(u3dcb->u3ddecoder, (U64*)&scaling);
         pData += sizeof(U64);
         shift += sizeof(U64);
-        printf("\tscaling: %lf\n", scaling);
+        printf("  scaling: %lf\n", scaling);
     } /* if */
 
     return u3dStsNoErr;
