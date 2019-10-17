@@ -4,6 +4,37 @@ project(u3d-to-stl)
 find_package(LibXml2 REQUIRED)
 
 set(SOURCES
+    ./apps/u3d-to-stl/block_0x00443355.c
+    ./apps/u3d-to-stl/block_0xFFFFFF12.c
+    ./apps/u3d-to-stl/block_0xFFFFFF14.c
+    ./apps/u3d-to-stl/block_0xFFFFFF15.c
+    ./apps/u3d-to-stl/block_0xFFFFFF16.c
+    ./apps/u3d-to-stl/block_0xFFFFFF21.c
+    ./apps/u3d-to-stl/block_0xFFFFFF22.c
+    ./apps/u3d-to-stl/block_0xFFFFFF23.c
+    ./apps/u3d-to-stl/block_0xFFFFFF24.c
+    ./apps/u3d-to-stl/block_0xFFFFFF31.c
+    ./apps/u3d-to-stl/block_0xFFFFFF36.c
+    ./apps/u3d-to-stl/block_0xFFFFFF37.c
+    ./apps/u3d-to-stl/block_0xFFFFFF3B.c
+    ./apps/u3d-to-stl/block_0xFFFFFF3C.c
+    ./apps/u3d-to-stl/block_0xFFFFFF3E.c
+    ./apps/u3d-to-stl/block_0xFFFFFF3F.c
+    ./apps/u3d-to-stl/block_0xFFFFFF41.c
+    ./apps/u3d-to-stl/block_0xFFFFFF42.c
+    ./apps/u3d-to-stl/block_0xFFFFFF43.c
+    ./apps/u3d-to-stl/block_0xFFFFFF44.c
+    ./apps/u3d-to-stl/block_0xFFFFFF45.c
+    ./apps/u3d-to-stl/block_0xFFFFFF46.c
+    ./apps/u3d-to-stl/block_0xFFFFFF51.c
+    ./apps/u3d-to-stl/block_0xFFFFFF52.c
+    ./apps/u3d-to-stl/block_0xFFFFFF53.c
+    ./apps/u3d-to-stl/block_0xFFFFFF54.c
+    ./apps/u3d-to-stl/block_0xFFFFFF55.c
+    ./apps/u3d-to-stl/block_0xFFFFFF56.c
+    ./apps/u3d-to-stl/block_0xFFFFFF5C.c
+    ./apps/u3d-to-stl/u3d-to-stl.c
+    ./apps/u3d-to-stl/u3dparsefile.h
     ./include/stl.h
     ./include/u3dbitdecoder.h
     ./include/u3dbitencoder.h
@@ -54,37 +85,6 @@ set(SOURCES
     ./libraries/parser/src/u3dpipeline.c
     ./libraries/parser/src/u3dpipeline.h
     ./libraries/stl/stl.c
-    ./samples/parsefile/block_0x00443355.c
-    ./samples/parsefile/block_0xFFFFFF12.c
-    ./samples/parsefile/block_0xFFFFFF14.c
-    ./samples/parsefile/block_0xFFFFFF15.c
-    ./samples/parsefile/block_0xFFFFFF16.c
-    ./samples/parsefile/block_0xFFFFFF21.c
-    ./samples/parsefile/block_0xFFFFFF22.c
-    ./samples/parsefile/block_0xFFFFFF23.c
-    ./samples/parsefile/block_0xFFFFFF24.c
-    ./samples/parsefile/block_0xFFFFFF31.c
-    ./samples/parsefile/block_0xFFFFFF36.c
-    ./samples/parsefile/block_0xFFFFFF37.c
-    ./samples/parsefile/block_0xFFFFFF3B.c
-    ./samples/parsefile/block_0xFFFFFF3C.c
-    ./samples/parsefile/block_0xFFFFFF3E.c
-    ./samples/parsefile/block_0xFFFFFF3F.c
-    ./samples/parsefile/block_0xFFFFFF41.c
-    ./samples/parsefile/block_0xFFFFFF42.c
-    ./samples/parsefile/block_0xFFFFFF43.c
-    ./samples/parsefile/block_0xFFFFFF44.c
-    ./samples/parsefile/block_0xFFFFFF45.c
-    ./samples/parsefile/block_0xFFFFFF46.c
-    ./samples/parsefile/block_0xFFFFFF51.c
-    ./samples/parsefile/block_0xFFFFFF52.c
-    ./samples/parsefile/block_0xFFFFFF53.c
-    ./samples/parsefile/block_0xFFFFFF54.c
-    ./samples/parsefile/block_0xFFFFFF55.c
-    ./samples/parsefile/block_0xFFFFFF56.c
-    ./samples/parsefile/block_0xFFFFFF5C.c
-    ./samples/parsefile/u3dparsefile.c
-    ./samples/parsefile/u3dparsefile.h
 )
 
 SET (INCLUDE_DIRS
