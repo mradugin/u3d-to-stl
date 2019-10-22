@@ -20,19 +20,6 @@
 
 #include "u3dparsefile.h"
 
-char *indent[] = {	"\n",
-                    "\n ",
-                    "\n  ",
-                    "\n   ",
-                    "\n    ",
-                    "\n     ",
-                    "\n      ",
-                    "\n       ",
-                    "\n        ",
-                    "\n         ",
-                    "\n          "
-                };
-
 void* myMalloc(void* memCtx, U32 size)
 {
     void*  res;

@@ -32,8 +32,6 @@
 extern "C" {
 #endif
 
-extern char *indent[];
-
 typedef struct {
     U3dParser*   u3dparser;
     U3dDecoder*  u3ddecoder;
