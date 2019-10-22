@@ -1,4 +1,6 @@
 # u3d-to-stl
+[![Build Status](https://travis-ci.org/mradugin/u3d-to-stl.svg?branch=master)](https://travis-ci.org/mradugin/u3d-to-stl)
+
 Simple U3D to STL converter based on sample u3d-parser from [Universal 3D Sample Software](https://sourceforge.net/projects/u3d/)
 
 ## Usage
