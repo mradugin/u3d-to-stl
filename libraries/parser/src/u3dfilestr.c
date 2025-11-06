@@ -18,6 +18,7 @@
 //
 
 #include "u3dpipeline.h"
+#include <stdint.h>
 
 /*
  * U3D Parser function u3dDisposeModifierChainInfo
@@ -69,7 +70,7 @@ U3D_METHOD(U3dStatus, u3dDisposeModifierChainInfo,(
         shift += (sizeof(F32) * 6);
     } /* if */
 //    modifierChain->attributes = 0;
-    modifierChain->padding    = (0x04 - ((U32)pData) & 0x03) & 0x03;//???
+    modifierChain->padding    = (0x04 - ((uintptr_t)pData) & 0x03) & 0x03;//???
     pData += modifierChain->padding;
     shift += modifierChain->padding;
     modifierChain->modifierCount       = U3D_MAKE_U32(pData);
