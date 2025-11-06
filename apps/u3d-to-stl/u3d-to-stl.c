@@ -59,7 +59,7 @@ int BlockInfo(void* blockCtx, const U3dBlock *pBlock, const U32 position)
         u3dDisposeInfo0x00443355(u3dcb, position, (pBlock->data).data,
                                  (pBlock->data).size, &shift);
         break;
-#if 0
+#if defined(PROCESS_UNSUPPORTED_BLOCKS)
     case U3D_BT_FILEREF:
         break;
     case U3D_BT_MODIFIERCHAIN:
@@ -102,7 +102,7 @@ int BlockInfo(void* blockCtx, const U3dBlock *pBlock, const U32 position)
         u3dDisposeInfo0xFFFFFF3B(u3dcb, position, (pBlock->data).data,
                                  (pBlock->data).size, &shift);
         break;
-#if 0
+#if defined(PROCESS_UNSUPPORTED_BLOCKS)
     case U3D_BT_CLODMESHPROGRESSIVE:
         u3dDisposeInfo0xFFFFFF3C(u3dcb, position, (pBlock->data).data,
                                  (pBlock->data).size, &shift);
@@ -189,89 +189,11 @@ int BlockInfo(void* blockCtx, const U3dBlock *pBlock, const U32 position)
 #else
     default:
         printf("Unknown, skipping\n");
+        return 1;
         break;
 #endif
     }
-    if(pBlock->metaData.size) {
-        U32		size	= pBlock->metaData.size;
-        U32 	count 	= 0;
-        U32 	index 	= 0;
-        U32 	index1 	= 0;
-        U32		attributes;
-        U16		stringlen;
-        U8	    letter;
-
-        u3dcb->data = pBlock->metaData.data;
-        u3dcb->size = size;
-        u3dDecoderReset(u3dcb->u3ddecoder, u3dcb, myMap);
-        if(size < sizeof(U32)) {
-            return 0;
-        } /* if */
-        size -= sizeof(U32);
-        u3dGetU32(u3dcb->u3ddecoder, &count);
-        for(index = 0; index < count; index++) {
-            if(size < sizeof(U32)) {
-                return 0;
-            } /* if */
-            size -= sizeof(U32);
-            u3dGetU32(u3dcb->u3ddecoder, &attributes);
-            if(size < sizeof(U16)) {
-                return 0;
-            } /* if */
-            size -= sizeof(U16);
-            u3dGetU16(u3dcb->u3ddecoder, &stringlen);
-            if(size < stringlen) {
-                return 0;
-            } /* if */
-            for(index1 = 0; index1 < stringlen; index1++) {
-                u3dGetU8(u3dcb->u3ddecoder, &value[index1]);
-            } /* for */
-            value[index1] = 0;
-            // "value" variable contains key name
-            if(attributes&0x1) {
-                U32	datasize = 0;
-                U32 index2	 = 0;
-                // Binary value
-                if(size < sizeof(U32)) {
-                    return 0;
-                } /* if */
-                size -= sizeof(U32);
-                u3dGetU32(u3dcb->u3ddecoder, &datasize);
-                if(size < stringlen) {
-                    return 0;
-                } /* if */
-                for(index1 = 0; index1 < datasize; index1++) {
-                    u3dGetU8(u3dcb->u3ddecoder, &letter);
-                    sprintf(&value[index2], "#x%02X;", letter);
-                    index2 += 5;
-                    if(index2 > 65530) {
-                        value[index2] = 0;
-                        // "value" variable contains actual value of the key-value pair
-                        index2 = 0;
-                    } /* */
-                } /* for */
-                value[index2] = 0;
-                // "value" variable contains actual value of the key-value pair
-            } else {
-                if(size < sizeof(U16)) {
-                    return 0;
-                } /* if */
-                size -= sizeof(U16);
-                u3dGetU16(u3dcb->u3ddecoder, &stringlen);
-                shift+= sizeof(U16);
-                if(size < stringlen) {
-                    return 0;
-                } /* if */
-                for(index1 = 0; index1 < stringlen; index1++) {
-                    u3dGetU8(u3dcb->u3ddecoder, &value[index1]);
-                } /* for */
-                value[index1] = 0;
-                // "value" variable contains actual value of the key-value pair
-            } /* */
-        } /* for */
-    } /* if */
-
-    return 1;
+    return 0;
 } /* BlockInfo */
 
 int main( int argC, char* argV[])
